@@ -1,19 +1,32 @@
 namespace myapp.Services {
 
-    export class MovieService {
-        private MovieResource;
+    export class CarService {
+        private CarResource;
 
-        public listMovies() {
-            return this.MovieResource.query();
+        public listCars() {
+            return this.CarResource.query();
         }
 
         constructor($resource: ng.resource.IResourceService) {
-            this.MovieResource = $resource('/api/movies');
+            this.CarResource = $resource('/api/cars');
         }
     }
-    angular.module('myapp').service('movieService', MovieService);
+    angular.module('myapp').service('carService', CarService);
     export class MyService {
 
     }
-    angular.module('myapp').service('myService', MyService);
+
+    export class MakeService {
+      private MakeResource;
+
+      public listMakes() {
+        return this.MakeResource.query();
+      }
+
+      constructor($resource: ng.resource.IResourceService) {
+        this.MakeResource = $resource('/api/makes');
+      }
+      }
+    angular.module('myapp').service('makeService', MakeService);
+
     }

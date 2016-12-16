@@ -22,6 +22,18 @@ namespace myapp {
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
+            })
+            .state('allCars', {
+                url: '/allcars',
+                templateUrl: '/ngApp/views/allcars.html',
+                controller: myapp.Controllers.CarController,
+                controllerAs: 'controller'
+            })
+            .state('carDetails', {
+                url: '/details/:id',
+                templateUrl: '/ngApp/views/carDetails.html',
+                controller: myapp.Controllers.DetailsController,
+                controllerAs: 'controller'
             });
 
         // Handle request for non-existent route
@@ -31,6 +43,6 @@ namespace myapp {
         $locationProvider.html5Mode(true);
     });
 
-    
+
 
 }

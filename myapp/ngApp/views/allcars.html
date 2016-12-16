@@ -1,0 +1,7 @@
+<h2>Browse All the cars</h2>
+
+<ul>
+    <li ng-repeat="car in controller.cars">
+        <a ng-href="/details/{{car.id}}">{{car.ShortDescription}}</a>
+    </li>
+</ul>
