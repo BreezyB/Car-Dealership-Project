@@ -1,7 +1,39 @@
-<h2>Browse All the cars</h2>
 
-<ul>
-    <li ng-repeat="car in controller.cars">
-        <a ng-href="/details/{{car.id}}">{{car.ShortDescription}}</a>
-    </li>
-</ul>
+<div id="MakeSearch">
+    <h2>Select from our different select of Makes:</h2>
+    <select ng-model="value">
+       <option ng-repeat="make in controller.makes" value="{{make.id}}">{{make.name}}</option>
+     </select><br /><br />
+    <div class="row">
+      <div class="col-md-4">
+        <div class="thumbnail" ng-repeat="car in controller.carsList|filter:{CarMakeId:value}">
+          <img ng-src="{{car.ImageUrl}}">
+          <div class="caption">
+            <h3>{{car.ShortDescription}}</h3>
+            <p><a href="/details/{{car.id}}" class="btn btn-primary" role="button">More Info</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+<div id="CarSearch">
+    <h2>Or, search for your favorite.:</h2>
+    <input ng-model="controller.search"
+           ng-model-options="{debounce:1000}"
+           ng-change="controller.fetch()" />
+</div>
+
+
+<div id=AllCars>
+<h2>Our Current Stock of Cars</h2>
+<div class="panel panel-default">
+  <!-- Table -->
+  <table class="table">
+    <tr ng-repeat="x in controller.carsList">
+        <td><img src="{{ImageUrl}}"></td>
+        <td>{{x.ShortDescription}}</td>
+        <td><a href="/details/{{x.id}}">More Info</a></td>
+    </tr>
+  </table>
+</div>

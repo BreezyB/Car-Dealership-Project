@@ -13,10 +13,10 @@ namespace myapp {
                 controller: myapp.Controllers.HomeController,
                 controllerAs: 'controller'
             })
-            .state('about', {
-                url: '/about',
-                templateUrl: '/ngApp/views/about.html',
-                controller: myapp.Controllers.AboutController,
+            .state('allMakes', {
+                url: '/makes',
+                templateUrl: '/ngApp/views/makes.html',
+                controller: myapp.Controllers.MakeController,
                 controllerAs: 'controller'
             })
             .state('notFound', {
@@ -31,7 +31,7 @@ namespace myapp {
             })
             .state('carDetails', {
                 url: '/details/:id',
-                templateUrl: '/ngApp/views/carDetails.html',
+                templateUrl: '/ngApp/views/details.html',
                 controller: myapp.Controllers.DetailsController,
                 controllerAs: 'controller'
             });

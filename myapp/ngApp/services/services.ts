@@ -1,5 +1,4 @@
 namespace myapp.Services {
-
     export class CarService {
         private CarResource;
 
@@ -7,8 +6,12 @@ namespace myapp.Services {
             return this.CarResource.query();
         }
 
+        public getCar(id) {
+          return this.CarResource.get({id: id});
+        }
+
         constructor($resource: ng.resource.IResourceService) {
-            this.CarResource = $resource('/api/cars');
+            this.CarResource = $resource('/api/cars/:id');
         }
     }
     angular.module('myapp').service('carService', CarService);
@@ -27,6 +30,6 @@ namespace myapp.Services {
         this.MakeResource = $resource('/api/makes');
       }
       }
-    angular.module('myapp').service('makeService', MakeService);
 
-    }
+    angular.module('myapp').service('makeService', MakeService);
+ }
