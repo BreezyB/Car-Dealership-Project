@@ -15,13 +15,20 @@
         </div>
       </div>
     </div>
-
 </div>
+
+
 <div id="CarSearch">
     <h2>Or, search for your favorite.:</h2>
-    <input ng-model="controller.search"
+    <input ng-model="controller.carSearch"
            ng-model-options="{debounce:1000}"
            ng-change="controller.fetch()" />
+
+    <ul>
+      <li ng-repeat="car in controller.cars2">
+          {{car.ShortDescription}}
+      </li>
+    </ul>
 </div>
 
 

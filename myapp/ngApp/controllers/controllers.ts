@@ -26,6 +26,18 @@ const apiURL = '/api/cars/search/';
             });
         }
 
+        public carSearch;
+        public cars2
+
+        fetch() {
+            if (this.carSearch) {
+                console.log('searching');
+                this.$http.get(apiURL + this.carSearch)
+                    .then((results) => {
+                        this.cars2 = results.data;
+                    });
+            }
+        }
 
 
 
